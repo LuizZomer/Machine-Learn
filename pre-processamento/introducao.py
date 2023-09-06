@@ -4,7 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import plotly.express as px
 
-base_credit = pd.read_csv('Bases_de_dados/credit_data.csv')
+base_credit = pd.read_csv('./Bases_de_dados/credit_data.csv')
 
 # print(base_credit.head(10))
 # print(base_credit.tail(10))
@@ -40,5 +40,12 @@ base_credit.loc[base_credit['age'] < 0, 'age'] = 40.92
 # print(base_credit.loc[base_credit['age'] < 0])
 # print(base_credit.head(27))
 
-plt.hist(base_credit['age'])
-plt.show()
+# plt.hist(base_credit['age'])
+# plt.show()
+
+# print(base_credit.loc[pd.isnull(base_credit['age'])])
+
+base_credit['age'].fillna(base_credit['age'].mean(), inplace=True)
+
+# print(base_credit.isnull().sum())
+# print(base_credit.loc[base_credit['clientid'].isin([29, 31, 32])])

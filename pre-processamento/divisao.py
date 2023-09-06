@@ -11,4 +11,6 @@ base_credit.loc[base_credit['age'] < 0, 'age'] = 40.92
 base_credit['age'].fillna(base_credit['age'].mean(), inplace=True)
 
 
-x_credits = base_credit.iloc[:, ]
+x_credits = base_credit.iloc[:, 1:4].values
+
+y_credit = base_credit.iloc[:, 4]
